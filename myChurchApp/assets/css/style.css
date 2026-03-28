@@ -1,0 +1,265 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+}
+body{
+    margin: 0;
+    padding: 0 ;
+}
+.container-fluid{
+    padding: 0 !important;
+}
+/* Font import for Playwright Cuba Thin 100 */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@100&display=swap');
+
+.sticky-navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    width: 100%;
+    height: 70px; /* Fixed height for the navbar */
+    background-color: rgba(4, 5, 5, 0.8);
+    color: rgb(240, 224, 5);
+    transition: background-color 3s ease, color 3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    font-weight: 600;
+}
+
+.sticky-navbar .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Brand logo */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-brand img {
+    height: 95px; /* Adjust the height to make the logo bigger */
+    width: auto; /* Maintain the aspect ratio */
+    padding-left: 40px; /* Adds some space to the left */
+}
+
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 50px; /* Adjust for smaller screens */
+        padding-left: 5px;
+    }
+}
+
+
+.sticky-navbar.scrolled .navbar-brand img {
+    height: 80px; /* Adjust logo size when scrolled */
+    
+}
+
+/* Navbar links */
+.sticky-navbar .navbar-nav a {
+    text-decoration: none;
+    color: rgb(240, 224, 5);
+    padding: 8px 12px;
+    border-radius: 12px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sticky-navbar.scrolled .navbar-nav a {
+    color: #000;
+}
+
+.sticky-navbar .navbar-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: rgb(240, 224, 5);
+}
+
+.sticky-navbar.scrolled .navbar-nav a:hover {
+    background-color: #333;
+    color: #f0e405;
+}
+
+/* Navbar collapse button */
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    color: rgb(240, 224, 5);
+}
+
+/* Video section */
+.video-section {
+    margin-top: 80px; /* Push video below the navbar height */
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.video-section video {
+    width: 100vw;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+}
+
+/* Dropdown menu styles */
+.nav-item.dropdown .nav-link {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item.dropdown img {
+    margin-right: 8px;
+    border-radius: 50%;
+}
+
+/* Content padding */
+.content {
+    padding-top: 10px; /* Adjust based on space you want below the video */
+}
+
+/* Full-width background color section */
+.full-width-background {
+    background-color: rgb(248, 249, 250); /* Background color */
+    padding: 30px 0 !important; /* Padding for vertical spacing */
+    border:1px solid #d4dde5;;
+}
+
+.card-container {
+    max-width: 1200px; /* Max width for card container */
+    margin: 0 auto; /* Center the container */
+}
+
+.carousel {
+    width: 100%; /* Ensure full width */
+    max-width: 100%;
+    height: auto; /* Adjust height based on content */
+}
+
+.carousel-item {
+    min-height: 400px; /* Set a minimum height for carousel items */
+    background-color: white !important ; /* Optional: Add a background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item video {
+    max-width: 100%; /* Ensure the video is responsive */
+    height: auto;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: transparent; /* Set the background to transparent */
+    filter: invert(0); /* Ensures no default color change */
+}
+
+/* For black icons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1); /* This makes the icons black */
+}
+
+
+/*Footer Styles
+*/
+.site-footer {
+    background: rgba(4, 5, 5, 0.8);
+    padding: 50px 0;
+    color: white;
+ }
+
+ .site-footer .widget {
+   margin-bottom: 30px;
+ }
+   
+.site-footer .widget .widget-title {
+     color: rgb(240, 224, 5);
+     font-size: 18px;
+     font-size: 1.2857142857em; 
+}
+
+ul.address {
+ list-style: none; 
+
+}
+
+ul.address .fa {
+   width: 20px;
+   text-align: center;
+   color: skyblue;
+ }
+
+ul.bullet {
+ list-style-image: url(images/bullet.png);
+ list-style-position: inside;
+
+}
+
+ ul.bullet li {
+   padding: 10px 0;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+ }
+
+ul.bullet li a {
+    color: white;
+    
+}
+
+ul.bullet li a:hover {
+    color: #8f7655; 
+    
+}
+
+.contact-form input:not([type="submit"]), .contact-form textarea {
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: white;
+    padding: 15px;
+    color: rgb(240, 224, 5);
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.2); 
+}
+
+.contact-form textarea {
+ min-height: 150px;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        

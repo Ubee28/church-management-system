@@ -1,0 +1,42 @@
+# ===== OS/System files =====
+.DS_Store
+Thumbs.db
+
+# ===== IDE/editor folders =====
+.vscode/
+.idea/
+
+# ===== PHP-specific =====
+vendor/
+
+# ===== Environment/config =====
+.env
+*.env
+
+# ===== Logs, temp, cache =====
+*.log
+*.cache
+*.tmp
+*.bak
+*.swp
+sessions/
+cache/
+tmp/
+
+# ===== Database and backups =====
+config.php
+backup/
+
+# ===== Unused upload folders (if storing user files) =====
+uploads/
+files/
+
+# ===== Project-specific =====
+admin_classes/*.bak
+admin/tmp/
+
+# ===== Archives =====
+*.zip
+*.tar.gz
+*.rar
+*.7z

@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: LeckerliOne-Regular
+font link: https://fonts.google.com/specimen/Leckerli+One
+font author: Gesine Todt
+font author site: http://www.gesine-todt.de/
+Slogan Font: Questrial-Regular.otf
+
+icon designer: Icons By Alfredo
+icon designer link: /AlfredoCreates
+        
+{"bg":"#4D65F1","icon":"#ffffff","font":"#ffffff","slogan":"#ffffff"}
+      

@@ -1,0 +1,26 @@
+.main-content {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.custom-navbar .nav-link {
+    color: skyblue !important; /* Your desired styles */
+}
+
+
+/* Ensure sidebar has a full height and is fixed */
+
+.sidebar {
+    position: fixed; /* Keeps the sidebar fixed */
+    top: 70px; /* Sticks it to the top */
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Allows scrolling if content overflows */
+}
+
+/* Responsive adjustments for the main content */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0; /* Reset margin for smaller screens */
+        padding: 10px; /* Optional padding adjustment */
+    }
+}
