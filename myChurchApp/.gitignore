@@ -24,6 +24,9 @@ cache/
 tmp/
 
 # ===== Database and backups =====
+*.sql
+*.sqlite
+*.db
 config.php
 backup/
 
