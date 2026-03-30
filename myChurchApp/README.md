@@ -1,23 +1,26 @@
 # Church Management System
-A full-stack web application designed to help churches manage members, events, and donations efficiently.
-
-This project demonstrates practical backend and frontend development using PHP and MySQL, with a focus on real-world data management.
+This project was built to demonstrate practical backend development skills, including database design, authentication systems, and administrative dashboards in a real-world application scenario.
 
 ---
 
 ## 🚀 Features
 
-- User authentication (login system)
-- Member management
-- Event creation and tracking
-- Donation management
-- Admin dashboard for managing church activities
+- Secure user authentication system (login/logout)
+- Admin dashboard for centralized control
+- Add, edit, and delete church members
+- Create and manage church events
+- Record and track donations
+- Add, edit, and delete sermons
+- Dynamic updates using JavaScript (AJAX)
+
+---
+
 
 ---
 
 ## 🛠️ Technologies Used
 
-- **Frontend:** HTML, CSS, JavaScript  
+- **Frontend:** HTML, CSS, Bootstrap, JavaScript  
 - **Backend:** PHP  
 - **Database:** MySQL  
 - **Version Control:** Git & GitHub  
@@ -27,26 +30,27 @@ This project demonstrates practical backend and frontend development using PHP a
 ## 📁 Project Structure
 
 
-/css → Stylesheets
-/js → JavaScript files
-/images → Project images
-/sql → Database file
-index.php → Main entry point
+/css # Stylesheets
+/js # JavaScript files
+/images # Project images
+/sql # Database file
+index.php # Main entry point
 
 
 ---
 
-## Screenshots
+## 📷 Screenshots
 
+### Homepage  
+![Homepage](assets/images/Capture.PNG)  
+![Homepage](assets/images/Capture2.PNG)  
 
-Homepage:  
-![Homepage](assets/images/Capture.PNG)
-![Homepage](assets/images/Capture2.PNG)
+### Admin Dashboard  
+![Dashboard](assets/images/Capture3.PNG)  
+![Dashboard](assets/images/Capture4.PNG)  
+![Dashboard](assets/images/Capture5.PNG)  
 
-Admin Dashboard:  
-![Dashboard](assets/images/Capture3.PNG)
-![Dashboard](assets/images/Capture4.PNG)
-![Dashboard](assets/images/Capture5.PNG)
+---
 
 ## ⚙️ How to Run the Project
 
@@ -75,5 +79,5 @@ http://localhost/church-management-system
 
 ## 👨‍💻 Author
 
-**Ubong Elijah**  
+**Elijah Ubong Daniel**  
 GitHub: https://github.com/Ubee28
