@@ -1,5 +1,5 @@
 <?php 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/churchApp4/classes/Db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/myChurchApp/classes/Db.php';
 
 
 
