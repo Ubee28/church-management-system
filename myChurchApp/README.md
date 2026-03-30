@@ -43,13 +43,13 @@ index.php → Main entry point
 
 
 Homepage:  
-![Homepage](images/Capture.png)
-![Homepage](images/Capture2.png)
+![Homepage](assets/images/Capture.PNG)
+![Homepage](assets/images/Capture2.PNG)
 
 Admin Dashboard:  
-![Dashboard](images/Capture3.png)
-![Dashboard](images/Capture4.png)
-![Dashboard](images/Capture5.png)
+![Dashboard](assets/images/Capture3.PNG)
+![Dashboard](assets/images/Capture4.PNG)
+![Dashboard](assets/images/Capture5.PNG)
 
 ## ⚙️ How to Run the Project
 
