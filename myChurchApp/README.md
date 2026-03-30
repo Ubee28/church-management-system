@@ -1,7 +1,4 @@
 # Church Management System
-
-# Church Management System
-
 A full-stack web application designed to help churches manage members, events, and donations efficiently.
 
 This project demonstrates practical backend and frontend development using PHP and MySQL, with a focus on real-world data management.
