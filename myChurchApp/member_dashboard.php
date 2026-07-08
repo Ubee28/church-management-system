@@ -6,6 +6,7 @@ require_once "classes/Member.php";
 $member = new Member;
 $member_data = $member->get_member_by_id($_SESSION['member_id']);
 
+
 include_once "partials/header.php";
 ?>
 

@@ -5,59 +5,128 @@
  
 <!-- about -->
 
-  <div class="row" style="margin-top: 120px">
-    <div class="col-md-10 offset-md-1">
-      <h3 style="margin-bottom:30px;" class="text-center heading-title"> LOGIN</h3>
+<div class="container">
+
+    <div class="row mt-5 pt-5">
+        <div class="col-12">
+            <h3 class="text-center heading-title mb-4">
+                LOGIN
+            </h3>
+        </div>
     </div>
-  </div>
 
-  <div class="row" style="padding-bottom: 50px;">
-    <div class="col-md-8 offset-md-2">
-      <?php 
-        if (isset($_SESSION['errormsg'])) {
-          echo "<div class='alert alert-danger'>". $_SESSION['errormsg']. "</div>";
-          unset($_SESSION['errormsg']);
-        }
+    <div class="row pb-5 justify-content-center">
 
-        if (isset($_SESSION['good_msg'])) {
-          echo "<div class='alert alert-success'>". $_SESSION['good_msg']. "</div>";
-          unset($_SESSION['good_msg']);
-        }
-      ?>
-      <form action="process/process_login.php" method="post">
-        
-        <div class="row mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <div class="col-sm-12">
-          <input type="email" class="form-control border-dark noround" name="email" id="email" aria-describedby="emailHelp">
-          </div>
+        <div class="col-12 col-md-10 col-lg-6">
+
+            <?php
+            if(isset($_SESSION['errormsg'])){
+                echo "<div class='alert alert-danger'>".$_SESSION['errormsg']."</div>";
+                unset($_SESSION['errormsg']);
+            }
+
+            if(isset($_SESSION['good_msg'])){
+                echo "<div class='alert alert-success'>".$_SESSION['good_msg']."</div>";
+                unset($_SESSION['good_msg']);
+            }
+            ?>
+
+            <form action="process/process_login.php" method="post" class="border rounded p-4 shadow-sm">
+
+                <!-- Email -->
+
+                <div class="mb-3">
+
+                    <label for="email" class="form-label">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        class="form-control border-dark noround"
+                        id="email"
+                        name="email">
+
+                </div>
+
+                <!-- Password -->
+
+                <div class="mb-3">
+
+                    <label for="pass" class="form-label">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        class="form-control border-dark noround"
+                        id="pass"
+                        name="pass">
+
+                </div>
+
+                <!-- User Type -->
+
+                <div class="mb-4">
+
+                    <label class="form-label d-block">
+                        Login As
+                    </label>
+
+                    <div class="form-check">
+
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            name="usertype"
+                            value="1"
+                            id="member">
+
+                        <label class="form-check-label" for="member">
+                            Member
+                        </label>
+
+                    </div>
+
+                    <div class="form-check">
+
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            name="usertype"
+                            value="2"
+                            id="pastor">
+
+                        <label class="form-check-label" for="pastor">
+                            Pastor
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <!-- Button -->
+
+                <div class="d-grid">
+
+                    <button
+                        type="submit"
+                        name="btnlogin"
+                        value="1"
+                        class="btn btn-danger noround">
+
+                        Login
+
+                    </button>
+
+                </div>
+
+            </form>
+
         </div>
 
-        <div class="row mb-3">
-          <label for="pass" class="form-label">Password</label>
-          <div class="col-sm-12">
-          <input type="password" class="form-control border-dark noround" id="pass" name="pass">
-          </div>
-        </div>
+    </div>
 
-        <div class="mb-3 form-check">
-          <input type="radio" class="form-check-input" value="1" id="member" name="usertype">
-          <label class="form-check-label" for="tourist">Member</label>          
-        </div>
-        <div class="mb-3 form-check">
-            <input type="radio" class="form-check-input" value="2" id="pastor" name="usertype">
-            <label class="form-check-label" for="center">Pastor</label>          
-          </div>
-
-        <div class="row mb-3 text-center">
-          <div class="col-sm-12">
-          <button type="submit" name="btnlogin" value="1" class="btn btn-danger col-6 noround">Login</button>
-          </div>
-        </div>
-
-      </form>
-
-  </div>
 </div>
 <!-- end about -->
 

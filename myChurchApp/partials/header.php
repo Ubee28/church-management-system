@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo $basePath; ?>assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="Admin/assets/css/admin_d.css">
     <link rel="stylesheet" type="text/css" href="assets/css/m_dash.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/donate.css">
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $basePath; ?>favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $basePath; ?>favicon/favicon-32x32.png">
@@ -60,9 +61,9 @@
                             ?>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="memberDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Register
+                                        Sign Up
                                     </a>
-                                    <ul class="dropdown-menu" aria-labelledby="memberDropdown" style="border-radius: 12px;background-color: #13357B;"> 
+                                    <ul class="dropdown-menu" aria-labelledby="memberDropdown" style="border-radius: 12px;background-color: #fff;"> 
                                         <li class="dropdown-item"><a class="nav-link" href="<?php echo $basePath; ?>registerMember.php">As a Member</a></li>
                                         <li class="dropdown-item"><a class="nav-link" href="<?php echo $basePath; ?>registerPastor.php">As a Pastor</a></li>
                                     </ul>
@@ -77,7 +78,7 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="memberDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="<?php echo $basePath; ?>assets/images/guide-1.jpg" width="30" style="border-radius: 50%;"> Hi <?php echo isset($member_data['member_fname']) ? $member_data['member_fname'] : "Member"; ?>
                                     </a>
-                                    <ul class="dropdown-menu" aria-labelledby="memberDropdown" style="border-radius: 12px;background-color: #13357B;">
+                                    <ul class="dropdown-menu" aria-labelledby="memberDropdown" style="border-radius: 12px;background-color: #fff;">
                                         <li><a class="dropdown-item" href="<?php echo $basePath; ?>member_dashboard.php">My Dashboard</a></li>
                                         <li><a class="dropdown-item" href="<?php echo $basePath; ?>change_password.php">Change Password</a></li>
                                         <li><a class="dropdown-item" href="<?php echo $basePath; ?>logout.php">Logout</a></li>
@@ -90,7 +91,7 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="<?php echo $basePath; ?>assets/images/guide-1.jpg" width="30" style="border-radius: 50%;"> Hi Admin
                                     </a>
-                                    <ul class="dropdown-menu" aria-labelledby="adminDropdown" style="border-radius: 12px;background-color: #13357B;">
+                                    <ul class="dropdown-menu" aria-labelledby="adminDropdown" style="border-radius: 12px;background-color: #fff;">
                                         <li><a class="dropdown-item" href="<?php echo $basePath; ?>admin_dashboard.php">Admin Dashboard</a></li>
                                         <li><a class="dropdown-item" href="<?php echo $basePath; ?>change_password.php">Change Password</a></li>
                                         <li><a class="dropdown-item" href="<?php echo $basePath; ?>admin_logout.php">Logout</a></li>
@@ -112,6 +113,9 @@
                             <?php
                             }
                             ?>
+                                <li class="nav-item">
+                                      <a class="nav-link" href="<?php echo $basePath; ?>donate.php">Donate</a>
+                                </li>
                         </ul>
                     </div>
                 </div>

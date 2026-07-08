@@ -6,9 +6,13 @@ require_once "classes/Sermon.php";
 require_once "classes/Event.php";
 require_once "classes/Member.php";
 require_once "classes/Pastor.php";
+require_once "classes/Donation.php";
+require_once "classes/DonationPurpose.php";
 // require_once "memberCRUD_guard.php";
 // require_once "sermonCRUD_guard.php";
 // require_once "eventCRUD_guard.php";
+
+include_once "partials/header.php";
 
 $admin = new Admin;
 $admin_data = $admin->get_admin_by_id($_SESSION['admin_id']);
@@ -29,7 +33,44 @@ $upcoming_event_count = $event2->upcoming_event_count();
 $pastor = new Pastor;
 
 $sermon = new Sermon;
-include_once "partials/header.php";
+$total_sermons = $sermon->sermon_count();
+
+$search = $_GET['search'] ?? "";
+
+$status = "";
+
+$payment_method = "";
+
+if(isset($_GET['status'])){
+
+    $value = $_GET['status'];
+
+    if(in_array($value, ['successful','pending','failed'])){
+
+        $status = $value;
+
+    }elseif(in_array($value,['card','transfer','ussd'])){
+
+        $payment_method = $value;
+
+    }
+
+}
+
+$donation = new Donation();
+$donations = $donation->getAllDonations(
+    $search,
+    $status,
+    $payment_method,
+    5
+);
+
+$successfulDonations = $donation->getSuccessfulDonationCount();
+
+$totalDonationAmount = $donation->getTotalDonationAmount();
+
+$donationPurpose = new DonationPurpose();
+$purposes = $donationPurpose->fetch_all_purposes();
 
 ?>
 
@@ -37,20 +78,77 @@ include_once "partials/header.php";
 
 
 
-<!-- Sidebar -->
-<div class="sidebar">
-    <a href="#dashboard">Dashboard</a>
+<!-- Mobile Menu Button -->
+<div class="d-lg-none mt-5 pt-4 px-3">
+
+    <button
+        class="btn btn-dark"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#sidebarMenu">
+
+        <i class="fas fa-bars"></i> Menu
+
+    </button>
+
+</div>
+
+<!-- Desktop Sidebar -->
+<div class="sidebar d-none d-lg-block">
+
     <a href="#members">Members</a>
-    <a href="#attendance">Attendance</a>
+    <!-- <a href="#attendance">Attendance</a> -->
     <a href="#events">Events</a>
     <a href="#sermons">Sermons</a>
     <a href="#donations">Donations</a>
-    <a href="#groups">Groups</a>
-    <a href="#roles">Roles</a>
-    <a href="#prayerRequests">Prayer Requests</a>
-    <a href="#announcements">Announcements</a>
-    <a href="#volunteerOpportunities">Volunteer Opportunities</a>
-    <a href="#signups">Volunteer Signups</a>
+    <a href="#donationPurposes">Donation Purposes</a>
+    <!-- <a href="#groups">Groups</a> -->
+    <!-- <a href="#roles">Roles</a> -->
+    <!-- <a href="#prayerRequests">Prayer Requests</a> -->
+    <!-- <a href="#announcements">Announcements</a> -->
+    <!-- <a href="#volunteerOpportunities">Volunteer Opportunities</a> -->
+    <!-- <a href="#signups">Volunteer Signups</a> -->
+
+</div>
+
+<!-- Mobile Sidebar -->
+<div
+    class="offcanvas offcanvas-start bg-dark text-white"
+    tabindex="-1"
+    id="sidebarMenu">
+
+    <div class="offcanvas-header">
+
+        <h5 class="offcanvas-title">
+            Admin Menu
+        </h5>
+
+        <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="offcanvas">
+        </button>
+
+    </div>
+
+    <div class="offcanvas-body">
+
+        <a href="#dashboard" class="d-block text-white mb-3">Dashboard</a>
+        <a href="#members" class="d-block text-white mb-3">Members</a>
+        <!-- <a href="#attendance" class="d-block text-white mb-3">Attendance</a> -->
+        <a href="#events" class="d-block text-white mb-3">Events</a>
+        <a href="#sermons" class="d-block text-white mb-3">Sermons</a>
+        <a href="#donations" class="d-block text-white mb-3">Donations</a>
+         <a href="#donationPurposes" class="d-block text-white mb-3">Donation Purposes</a>
+        <!-- <a href="#groups" class="d-block text-white mb-3">Groups</a> -->
+        <!-- <a href="#roles" class="d-block text-white mb-3">Roles</a> -->
+        <!-- <a href="#prayerRequests" class="d-block text-white mb-3">Prayer Requests</a> -->
+        <!-- <a href="#announcements" class="d-block text-white mb-3">Announcements</a> -->
+        <!-- <a href="#volunteerOpportunities" class="d-block text-white mb-3">Volunteer Opportunities</a> -->
+        <!-- <a href="#signups" class="d-block text-white mb-3">Volunteer Signups</a> -->
+
+    </div>
+
 </div>
 
 
@@ -59,55 +157,114 @@ include_once "partials/header.php";
 
     <h1 class="mt-3">Admin Dashboard</h1>
     
-    <!-- Dashboard Cards -->
-    <div class="row">
+   <!-- Dashboard Cards -->
+<div class="row mt-4">
+
     <!-- Total Members -->
-    <div class="col-md-3 col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5><?php echo "Total Members: $total_members"?></h5>
-          <p><?php echo count($new_members) . " new, Last Week."  ?></p>
-          <a href="#members" class="btn btn-primary">View Members</a>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+
+                <h5 class="card-title">
+                    Total Members
+                </h5>
+
+                <h2 class="fw-bold">
+                    <?php echo $total_members; ?>
+                </h2>
+
+                <p class="text-muted">
+                    <?php echo count($new_members); ?> new last week
+                </p>
+
+                <a href="#members" class="btn btn-primary">
+                    View Members
+                </a>
+
+            </div>
         </div>
-      </div>
     </div>
-  
+
     <!-- Total Events -->
-    <div class="col-md-3 col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5>Total Events</h5>
-          <p><?php echo "$upcoming_event_count Upcoming this month."?></p>
-          <a href="#events" class="btn btn-primary">View Events</a>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+
+                <h5 class="card-title">
+                    Total Events
+                </h5>
+
+                <h2 class="fw-bold">
+                    <?php echo $upcoming_event_count; ?>
+                </h2>
+
+                <p class="text-muted">
+                    Upcoming this month
+                </p>
+
+                <a href="#events" class="btn btn-primary">
+                    View Events
+                </a>
+
+            </div>
         </div>
-      </div>
     </div>
-  
+
     <!-- Total Donations -->
-    <div class="col-md-3 col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5>Total Donations</h5>
-          <p>$12,000 Raised</p>
-          <a href="#donations" class="btn btn-primary">View Donations</a>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+
+                <h5 class="card-title">
+                   Successful Donations: <?php echo $successfulDonations; ?>
+                </h5>
+
+
+                <h2 class="text-success fw-bold">
+                    ₦<?php echo number_format($totalDonationAmount); ?>
+                </h2>
+
+                <p class="text-muted">
+                    Total amount received
+                </p>
+
+                <a href="#donations" class="btn btn-primary">
+                    View Donations
+                </a>
+
+            </div>
         </div>
-      </div>
     </div>
-  
+
     <!-- Total Sermons -->
-    <div class="col-md-3 col-sm-6 offset-md-0"> <!-- No offset needed if it fits the row -->
-      <div class="card">
-        <div class="card-body">
-          <h5>Total Sermons</h5>
-          <p>20</p>
-          <a href="#sermons" class="btn btn-primary">View Sermons</a>
+    <div class="col-xl-3 col-lg-6 col-md-6 col-12 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+
+                <h5 class="card-title">
+                    Total Sermons
+                </h5>
+
+                <h2 class="fw-bold">
+                    <?php echo $total_sermons; ?>
+                </h2>
+
+                <p class="text-muted">
+                    Available sermons
+                </p>
+
+                <a href="#sermons" class="btn btn-primary">
+                    View Sermons
+                </a>
+
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+
+</div>
 
     <!-- Members Section -->
-    <div id="members" class="row mt-4">
+    <div id="members" class="row mt-4 dashboard-section">
         <h2>Members</h2>
         <div class="col-md-12 ">
             <div class="card">
@@ -196,7 +353,7 @@ include_once "partials/header.php";
     </div>
 
     <!-- Attendance Section -->
-    <!-- <div id="attendance" class="row mt-4">
+    <!-- <div id="attendance" class="row mt-4 dashboard-section d-none">
         <h2>Attendance</h2>
         <div class="col-md-12">
             <div class="card">
@@ -235,7 +392,7 @@ include_once "partials/header.php";
     </div> -->
 
     <!-- Events Section -->
-    <div id="events" class="row mt-4">
+    <div id="events" class="row mt-4 dashboard-section d-none">
         <h2>Events</h2>
         <div class="col-md-12">
             <div class="card table-responsive">
@@ -417,7 +574,7 @@ include_once "partials/header.php";
 </div>
 
     <!-- Sermons Section -->
-    <div id="sermons" class="row mt-4">
+    <div id="sermons" class="row mt-4 dashboard-section d-none">
         <h2>Sermons</h2>
         <div class="col-md-12">
             <div class="card">
@@ -582,7 +739,7 @@ include_once "partials/header.php";
                                     $sermons = $sermon->fetch_sermon_by_month_and_year($month, $year);
 
                                 }
-                            } else
+                            }
                         ?>
                             <?php 
                                 $sn = 1;
@@ -628,9 +785,577 @@ include_once "partials/header.php";
                     </div>
                     <!-- Link to view all sermons -->
                     <a href="all_sermons.php" class="btn btn-link mt-3">See All Sermons</a>
-
+                </div> <!-- card-body -->
+            </div> <!-- card -->
+        </div> <!-- col-md-12 -->
+    </div> <!-- sermons -->
 
     <!-- Other sections (Donations, Groups, Roles, etc.) follow similar patterns -->
+     <!-- Donations Section -->
+<div id="donations" class="row mt-4 dashboard-section d-none">
+
+    <h2>Donations</h2>
+
+    <div class="col-md-12">
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <h5 class="card-title">
+                    Donation Records
+                </h5>
+
+                <!-- Search Donations -->
+                <form class="mb-3" method="get">
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Search Donations</label>
+
+                        <input
+                            type="text"
+                            name="search"
+                            class="form-control"
+                            placeholder="Search donor or purpose"
+                            value="<?php echo htmlspecialchars($search); ?>">
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Filter Donations</label>
+
+                        <select class="form-select" name="status">
+
+                            <option value="">All Donations</option>
+
+                            <option value="successful">Successful Donations</option>
+
+                            <option value="pending">Pending Donations</option>
+
+                            <option value="failed">Failed Donations</option>
+
+                            <option value="card">Card Payments</option>
+
+                            <option value="transfer">Bank Transfers</option>
+
+                            <option value="ussd">USSD Payments</option>
+
+                        </select>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+
+                        Search / Filter
+
+                    </button>
+
+                </form>
+
+                <!-- Donations Table -->
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered table-hover">
+
+                        <thead>
+
+                            <tr>
+
+                                <th class="text-center">S/N</th>
+                                <th class="text-center">Donor</th>
+                                <th class="text-center">Purpose</th>
+                                <th class="text-center">Amount</th>
+                                <th class="text-center">Method</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Date</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                        <?php
+
+                        if(count($donations)> 0){
+
+                            $sn = 1;
+
+                            foreach($donations as $d){
+
+                        ?>
+
+                            <tr>
+
+                                <td class="text-center">
+                                    <?php echo $sn++; ?>
+                                </td>
+
+                                <td class="text-center">
+
+                                    <?php
+
+                                    echo $d['is_anonymous']
+                                        ? 'Anonymous'
+                                        : htmlspecialchars($d['donor_name']);
+
+                                    ?>
+
+                                </td>
+
+                                <td class="text-center">
+                                    <?php echo htmlspecialchars($d['purpose']); ?>
+                                </td>
+
+                                <td class="text-center">
+                                    ₦<?php echo number_format($d['amount']); ?>
+                                </td>
+
+                                <td class="text-center">
+                                    <?php echo ucfirst($d['payment_method']); ?>
+                                </td>
+
+                                <td class="text-center">
+
+                                    <?php
+
+                                    if($d['status'] == 'successful'){
+
+                                        echo '<span class="badge bg-success">
+                                               ✓ Successful
+                                              </span>';
+
+                                    }elseif($d['status'] == 'pending'){
+
+                                        echo '<span class="badge bg-warning text-dark">
+                                                ⏳ Pending
+                                              </span>';
+
+                                    }else{
+
+                                        echo '<span class="badge bg-danger">
+                                                ✕ Failed
+                                              </span>';
+
+                                    }
+
+                                    ?>
+
+                                </td>
+
+                                <td class="text-center">
+
+                                    <?php
+
+                                    echo date(
+                                        "F d, Y",
+                                        strtotime($d['created_at'])
+                                    );
+
+                                    ?>
+
+                                </td>
+
+                            </tr>
+
+                        <?php
+
+                            }
+
+                        }else{
+
+                            echo "
+                            <tr>
+                                <td colspan='7' class='text-center'>
+                                    No donations found.
+                                </td>
+                            </tr>
+                            ";
+
+                        }
+
+                        ?>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <!-- View All Donations -->
+
+                <a
+                    href="all_donations.php"
+                    class="btn btn-link mt-3">
+
+                    See All Donations
+
+                </a>
+
+            </div> <!-- card-body -->
+
+        </div> <!-- card -->
+
+    </div> <!-- col-md-12 -->
+
+</div> <!-- donations row -->
+
+<!-- Donation Purposes Section -->
+<div id="donationPurposes" class="row mt-4 dashboard-section d-none">
+
+    <h2>Donation Purposes</h2>
+
+    <div class="col-md-12">
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <h5 class="card-title">
+                    Donation Purpose Records
+                </h5>
+
+                <!-- Add Button -->
+
+                <button
+                    class="btn btn-success mb-3"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addPurposeModal">
+
+                    Add Donation Purpose
+
+                </button>
+
+                <!-- Table -->
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered table-hover">
+
+                        <thead>
+
+                            <tr>
+
+                                <th class="text-center">S/N</th>
+                                <th class="text-center">Purpose</th>
+                                <th class="text-center">Description</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                        <?php
+
+                        $purposes = $donationPurpose->fetch_all_purposes();
+
+                        if(!empty($purposes)){
+
+                            $sn = 1;
+
+                            foreach($purposes as $purpose){
+
+                        ?>
+
+                            <tr>
+
+                                <td class="text-center"><?php echo $sn++; ?></td>
+
+                                <td class="text-center">
+
+                                    <?php echo htmlspecialchars($purpose['purpose_name']); ?>
+
+                                </td>
+
+                                <td class="text-truncate" style="max-width: 150px;">
+
+                                    <?php echo htmlspecialchars($purpose['description']); ?>
+
+                                </td>
+
+                                <td class="text-center">
+
+                                    <?php
+
+                                    if($purpose['active']){
+
+                                        echo '<span class="badge bg-success">Active</span>';
+
+                                    }else{
+
+                                        echo '<span class="badge bg-secondary">Inactive</span>';
+
+                                    }
+
+                                    ?>
+
+                                </td>
+
+                                <td class="text-center">
+
+                                    <!-- Edit -->
+
+                                    <button
+                                        class="btn btn-primary btn-sm editPurposeBtn"
+
+                                        data-id="<?php echo $purpose['purpose_id']; ?>"
+
+                                        data-name="<?php echo htmlspecialchars($purpose['purpose_name']); ?>"
+
+                                        data-description="<?php echo htmlspecialchars($purpose['description']); ?>"
+
+                                        data-bs-toggle="modal"
+
+                                        data-bs-target="#editPurposeModal"
+                                        style="margin-right: 10px;"
+                                    >
+
+                                        Edit
+
+                                    </button>
+
+                                    <?php
+
+                                    if($purpose['active']){
+
+                                    ?>
+
+                                        <a href="process/process_purpose.php?action=deactivate&id=<?php echo $purpose['purpose_id']; ?>"
+                                        class="btn btn-warning btn-sm confirmAction">
+                                        
+                                        Deactivate
+                                        
+                                        </a>
+
+                                    <?php
+
+                                    }else{
+
+                                    ?>
+
+                                        <a href="process/process_purpose.php?action=activate&id=<?php echo $purpose['purpose_id']; ?>"
+                                        class="btn btn-success btn-sm confirmAction">
+
+                                            Activate
+
+                                        </a>
+
+                                    <?php
+
+                                    }
+
+                                    ?>
+
+                                </td>
+
+                            </tr>
+
+                        <?php
+
+                            }
+
+                        }else{
+
+                        ?>
+
+                            <tr>
+
+                                <td colspan="5" class="text-center">
+
+                                    No donation purposes found.
+
+                                </td>
+
+                            </tr>
+
+                        <?php
+
+                        }
+
+                        ?>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="modal fade"
+    id="addPurposeModal"
+    tabindex="-1">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <form
+                action="process/process_purpose.php"
+                method="post">
+
+                <div class="modal-header">
+
+                    <h5 class="modal-title">
+
+                        Add Donation Purpose
+
+                    </h5>
+
+                    <button
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                    </button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Purpose Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="purpose_name"
+                            class="form-control"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Description
+
+                        </label>
+
+                        <textarea
+                            name="description"
+                            class="form-control"
+                            rows="4">
+                        </textarea>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+
+                        Cancel
+
+                    </button>
+
+                    <button
+                        type="submit"
+                        id="savePurposeBtn"
+                        name="btnAddPurpose"
+                        class="btn btn-success">
+
+                        Save Purpose
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+                                    <!-- Edit Donation Purpose Modal -->
+
+    <div class="modal fade" id="editPurposeModal" tabindex="-1">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <form action="process/process_purpose.php" method="post">
+
+                <div class="modal-header">
+
+                    <h5 class="modal-title">
+                        
+                        Edit Donation Purpose
+
+                    </h5>
+
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <input type="hidden" name="purpose_id" id="editPurposeId">
+
+                        <div class="mb-3">
+
+                            <label class="form-label"> Purpose Name </label>
+                            <input type="text" class="form-control" name="purpose_name" id="editPurposeName" required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label"> Description </label>
+
+                            <textarea class="form-control" rows="4" name="description" id="editPurposeDescription"></textarea>
+
+                        </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+
+                        Cancel
+
+                    </button>
+
+                    <button class="btn btn-primary" id="updatePurposeBtn" type="submit" name="btnUpdatePurpose">
+
+                        Update Purpose
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    </div>
 
 </div>
 <script src="assets/js/jquery-3.7.1.min.js"></script>
@@ -1104,6 +1829,152 @@ document.getElementById("sermonForm").addEventListener("submit", function (e) {
             }
         });
     });
+</script>
+
+<script>
+
+    document.querySelectorAll(".confirmAction").forEach(function(button){
+
+    button.addEventListener("click", function(event){
+
+        const confirmed = confirm(
+            "Are you sure you want to perform this action?"
+        );
+
+        if(!confirmed){
+
+            event.preventDefault();
+
+        }
+
+    });
+
+});
+</script>
+
+<script>
+    document.querySelectorAll(".editPurposeBtn").forEach(function(button){
+
+    button.addEventListener("click", function(){
+
+        document.getElementById("editPurposeId").value =
+            this.dataset.id;
+
+        document.getElementById("editPurposeName").value =
+            this.dataset.name;
+
+        document.getElementById("editPurposeDescription").value =
+            this.dataset.description;
+
+    });
+
+});
+
+</script>
+
+<script>
+    const addPurposeForm = document.querySelector("#addPurposeModal form");
+
+    if(addPurposeForm){
+
+        addPurposeForm.addEventListener("submit", function(){
+
+            const btn = document.getElementById("savePurposeBtn");
+
+            btn.disabled = true;
+
+            btn.innerHTML = `
+                <span class="spinner-border spinner-border-sm"></span>
+                Saving...
+            `;
+
+        });
+
+    }
+</script>
+
+<script>
+    const editPurposeForm = document.querySelector("#editPurposeModal form");
+
+    if(editPurposeForm){
+
+        editPurposeForm.addEventListener("submit", function(){
+
+            const btn = document.getElementById("updatePurposeBtn");
+
+            btn.disabled = true;
+
+            btn.innerHTML = `
+                <span class="spinner-border spinner-border-sm"></span>
+                Updating...
+            `;
+
+        });
+
+    }
+</script>
+
+<script>
+    setTimeout(function(){
+
+    const alerts = document.querySelectorAll(".alert");
+
+    alerts.forEach(function(alert){
+
+        alert.remove();
+
+    });
+
+},4000);
+</script>
+
+
+<script>
+  const sidebarLinks = document.querySelectorAll(".sidebar a");
+const sections = document.querySelectorAll(".dashboard-section");
+
+sidebarLinks.forEach(function(link){
+
+    link.addEventListener("click", function(e){
+
+        const target = this.getAttribute("href");
+
+        if(target.startsWith("#")){
+
+            e.preventDefault();
+
+            // Remove active class from all sidebar links
+            sidebarLinks.forEach(function(item){
+                item.classList.remove("active");
+            });
+
+            // Highlight the clicked link
+            this.classList.add("active");
+
+            // Hide every dashboard section
+            sections.forEach(function(section){
+                section.classList.add("d-none");
+            });
+
+            // Show the selected section
+            const activeSection = document.querySelector(target);
+
+            if(activeSection){
+
+                activeSection.classList.remove("d-none");
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+
+        }
+
+    });
+
+});
 </script>
 
 

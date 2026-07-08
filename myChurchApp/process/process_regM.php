@@ -18,16 +18,16 @@
 
         $available = $member->check_email($email);
         // process
-        if(($pass1 != $pass2) || empty($pass1)){
-            $_SESSION['errormsg'] = 'The two passwords must match and must not be blank';
-        header("location:../registerMember.php");
-        exit();
-        }elseif($available){
-            $_SESSION['errormsg'] = 'The email is taken';
+        if (empty($fname) || empty($lname) ||  empty($email) || empty($phone) || empty($dob) || empty($address) || empty($pass1)){
+            $_SESSION['errormsg'] = 'Please ensure you supply your names, email, phone number, date of birth and address.';
             header("location:../registerMember.php");
             exit();
-        }elseif(empty($fname) || empty($lname) ||  empty($pass1) || empty($email)){
-            $_SESSION['errormsg'] = 'Please ensure you supply your firstname, lastname and email.';
+        }elseif(($pass1 != $pass2)){
+            $_SESSION['errormsg'] = 'The two passwords must match and must not be blank';
+            header("location:../registerMember.php");
+            exit();
+        }elseif($available){
+            $_SESSION['errormsg'] = 'The email is taken';
             header("location:../registerMember.php");
             exit();
         }else{//everything is okay proceed to register

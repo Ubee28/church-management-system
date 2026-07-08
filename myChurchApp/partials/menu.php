@@ -58,11 +58,11 @@
                     <i class="fa fa-calendar-alt"></i> Events
                 </a>
             </li>
-            <!-- <li>
+            <li>
                 <a href="member_donations.php" class="nav-link link-body-emphasis">
                     <i class="fa fa-hand-holding-usd"></i> Donations
                 </a>
-            </li> -->
+            </li>
             <!-- <li>
                 <a href="#" class="nav-link link-body-emphasis">
                     <i class="fa fa-bullhorn"></i> Announcements
@@ -70,7 +70,7 @@
             </li> -->
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link link-body-emphasis" id="notificationIcon" data-bs-toggle="modal" data-bs-target="#notificationModal">
-                    <i class="fa fa-bell"></i>  Notifications
+                    <i class="fa fa-bell me-1"></i> Notifications
                     <span class="badge bg-danger" id="notificationBadge" style="display: none;">0</span>
                 </a>
             </li>

@@ -1,0 +1,51 @@
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero-img{
+    width: 101%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0 10px 10px 0;
+}
+
+/* =========================
+   DONATION PAGE ICONS
+========================= */
+
+.dPageIcons{
+    width: 45px;
+    height: 45px;
+}
+
+/* =========================
+   QUICK AMOUNT BUTTONS
+========================= */
+
+.quickPayBtns,
+.quickAmtBtns{
+    width: 100%;
+    min-height: 60px;
+    border: 2px solid #5A44E0;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+    height: 100%;
+}
+
+/* =========================
+   MOBILE / TABLET FIXES
+========================= */
+
+@media (max-width: 991px){
+
+    .hero-img{
+        border-radius: 0 0 10px 10px;
+    }
+
+}
+

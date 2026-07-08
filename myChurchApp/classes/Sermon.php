@@ -54,6 +54,14 @@
           return $stmt->fetchAll(PDO::FETCH_ASSOC);
       }
 
+      public function sermon_count(){
+            $sql = "SELECT * FROM sermon";
+            $stmt = $this->dbconn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->rowCount();
+            return $result;
+        }
+
       public function fetch_sermons_with_audio_id() {
         $sql = "SELECT sermon.sermon_title, sermon.sermon_audio, sermon.sermon_video, sermon.sermon_date, sermon.audio_file_id, 
                        pastors.pastor_fullname 

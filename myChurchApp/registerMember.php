@@ -26,11 +26,11 @@ include_once "partials/header.php";
 ?>
     <form action="process/process_regM.php" method="post">
         <div class="row mb-3">
-          <label for="fname" class="col-sm-2 col-form-label">Firstname</label>
+          <label for="fname" class="col-sm-2 col-form-label">First Name</label>
           <div class="col-sm-4">
             <input type="text" name="fname" class="form-control noround border-dark" id="fname">
           </div>
-          <label for="lname" class="col-sm-2 col-form-label">Lastname</label>
+          <label for="lname" class="col-sm-2 col-form-label">Last Name</label>
           <div class="col-sm-4">
             <input type="text" name="lname" class="form-control noround border-dark" id="lname">
           </div>
@@ -91,7 +91,7 @@ include_once "partials/header.php";
  
  
  
-<div class="row bg-dark text-white my-5 mb-2">
+<div class="row bg-dark text-white" style="margin-top: 167px;">
   <div class="col">
     <p class="text-center my-3"> &copy; 2024 Developed By Me</p>
   </div>
@@ -99,4 +99,4 @@ include_once "partials/header.php";
 
 <?php
      include_once "partials/footer.php";
-     ?>
+?>

@@ -30,12 +30,17 @@ body{
     display: flex;
     align-items: center; /* Center items vertically */
     font-weight: 600;
+    backdrop-filter: blur(150px);
+    
+    
 }
 
 .sticky-navbar .container-fluid {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
+    
 }
 
 /* Brand logo */
