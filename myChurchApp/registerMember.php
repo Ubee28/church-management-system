@@ -93,7 +93,7 @@ include_once "partials/header.php";
  
 <div class="row bg-dark text-white" style="margin-top: 167px;">
   <div class="col">
-    <p class="text-center my-3"> &copy; 2024 Developed By Me</p>
+    <p class="text-center my-3"> &copy; 2026 Developed By Me</p>
   </div>
 </div>
 

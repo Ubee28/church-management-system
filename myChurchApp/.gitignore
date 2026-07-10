@@ -25,6 +25,7 @@ tmp/
 
 # ===== Database and backups =====
 *.sql
+!database/church_management_system.sql
 *.sqlite
 *.db
 config.php

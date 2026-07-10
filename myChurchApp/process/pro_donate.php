@@ -4,6 +4,7 @@
     require_once "../classes/utility.php";
     require_once "../classes/Paystack.php";
     require_once "../classes/Donation.php";
+    require_once "../classes/DonationPurpose.php";
 
 
     $paystack = new Paystack();
@@ -13,9 +14,11 @@
     $payment_method = "card";
     $status         = "pending";
 
+    $donationPurpose = new DonationPurpose();
+
     
 
-if(isset($_POST['btnDonate'])){
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
     
     // Retrieve form data
     $member_id = isset($_SESSION['member_id']) ? $_SESSION['member_id'] : null;
@@ -29,26 +32,17 @@ if(isset($_POST['btnDonate'])){
 
     //check for empty email
     if(empty($donor_name) || empty($donor_email) || empty($donor_phone) || empty($purpose) || empty($amount)){
-        $_SESSION['errormsg'] = 'Please confirm you supplied your fullname, email, phone number and donation purpose';
+        $_SESSION['errormsg'] = 'Please confirm you supplied your fullname, email, phone number, donation purpose and amount';
         header("location:../donate.php");
-        exit();
-
-        $allowedPurposes = [
-        'Tithe',
-        'Offering',
-        'Building Project',
-        'Welfare Support',
-        'Missions',
-        'Thanksgiving',
-        'Special Seed'
-    ];
-
-    if(!in_array($purpose, $allowedPurposes)){
-        $_SESSION['errormsg'] = "Please select a valid donation purpose.";
-        header("Location: ../donate.php");
         exit();
     }
 
+    if(!$donationPurpose->is_valid_purpose($purpose)){
+
+        $_SESSION['errormsg'] = "Please select a valid donation purpose.";
+
+        header("Location: ../donate.php");
+        exit();
     }else{
 
         

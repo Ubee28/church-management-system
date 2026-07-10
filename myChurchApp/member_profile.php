@@ -10,77 +10,157 @@ include_once "partials/header.php";
 ?>
 
 
-    <div class="row" style="margin: 70px 0px 295px 0px">
-        <?php 
-            require_once "partials/menu.php";
-        
-        ?>
-<div class="col-md-9 p-3">
-    
-    <!-- Profile-->
-   <div class="row">
-       <div class="col-md-12 my-3">
-           <h5 class="my-3">Profile Update </h5>
-     <form>
-       <div class="row mb-3">
-           
-         <label for="fname" class="col-sm-2 col-form-label">First Name</label>
-         <div class="col-sm-4">
-           <input type="text" name="fname" class="form-control noround border-dark" id="fname">
-         </div>
-         <label for="lname" class="col-sm-2 col-form-label">Last Name</label>
-         <div class="col-sm-4">
-           <input type="text" name="lname" class="form-control noround border-dark" id="lname">
-         </div>
-       </div>
-       <div class="row mb-3">
-         <label for="phone" class="col-sm-2 col-form-label">Phone Number</label>
-         <div class="col-sm-4">
-           <input type="text" name="phone" class="form-control noround border-dark" id="phone">
-         </div>
-         <label for="gender" class="col-sm-2 col-form-label">Gender</label>
-         <div class="col-sm-4">
-             <select class="form-select noround border-dark" aria-label="Default select example" name="gender" id="gender">
-                 <option selected>Please Select</option>
-                 <option value="1">Female</option>
-                 <option value="2">Male</option> 
-               </select>
-         </div>
-          
-         </div>
-      
-         <div class="row mb-3">
-          
-           <label for="intro" class="col-sm-2 col-form-label">Your Intro</label>
-           <div class="col-sm-10">
-               <textarea id="intro" name="intro" class="form-control border-dark noround"></textarea>
-           </div>
-         </div>
-      
-    
-       <div class="row mb-3">
-           
-           <div class="col-sm-12 text-center">
-               <button type="submit" class="btn btn-danger col-6 noround">Update Account</button>
-           </div>
-         </div>
-      
-      
-      </form>
+<div class="container">
 
+    <div class="row mt-5 pt-5">
 
-       </div>
-   </div>
-   <!-- End profile-->
+        <?php require_once "partials/menu.php"; ?>
 
-</div>
+        <div class="col-md-9">
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-10">
+
+                    <h3 class="text-center heading-title mb-4">
+                        MY PROFILE
+                    </h3>
+
+                    <form class="border rounded shadow-sm p-4">
+
+                        <!-- First & Last Name -->
+
+                        <div class="row mb-3">
+
+                            <div class="col-md-6">
+
+                                <label for="fname" class="form-label">
+                                    First Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="fname"
+                                    name="fname"
+                                    class="form-control border-dark noround">
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <label for="lname" class="form-label">
+                                    Last Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="lname"
+                                    name="lname"
+                                    class="form-control border-dark noround">
+
+                            </div>
+
+                        </div>
+
+                        <!-- Phone & Gender -->
+
+                        <div class="row mb-3">
+
+                            <div class="col-md-6">
+
+                                <label for="phone" class="form-label">
+                                    Phone Number
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="phone"
+                                    name="phone"
+                                    class="form-control border-dark noround">
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <label for="gender" class="form-label">
+                                    Gender
+                                </label>
+
+                                <select
+                                    id="gender"
+                                    name="gender"
+                                    class="form-select border-dark noround">
+
+                                    <option selected>
+                                        Please Select
+                                    </option>
+
+                                    <option value="Male">
+                                        Male
+                                    </option>
+
+                                    <option value="Female">
+                                        Female
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Intro -->
+
+                        <div class="mb-4">
+
+                            <label for="intro" class="form-label">
+                                Your Introduction
+                            </label>
+
+                            <textarea
+                                id="intro"
+                                name="intro"
+                                rows="5"
+                                class="form-control border-dark noround"></textarea>
+
+                        </div>
+
+                        <!-- Button -->
+
+                        <div class="d-grid">
+
+                            <button
+                                type="submit"
+                                class="btn btn-danger noround">
+
+                                Update Profile
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <!-- Footer -->
-    <div class="row bg-dark text-white" style="position:fixed; bottom: 1px; left:0; right:0;">
-            <div class="col">
-                <p class="text-center my-3 "> &copy; 2024 Developed By Me</p>
-            </div>
+</div>
+
+<!-- Footer -->
+
+<div class="row bg-dark text-white mt-5">
+
+    <div class="col">
+
+        <p class="text-center my-4">
+            &copy; 2026 Developed By Me
+        </p>
+
     </div>
 
 </div>

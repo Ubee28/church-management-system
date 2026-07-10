@@ -33,7 +33,7 @@ include_once "partials/header.php";
 
      <!-- Footer -->
     <div style="position: fixed; bottom: 0; left: 0; right: 0; height: 60px; background-color: #343a40; color: white;">
-        <div class="text-center my-auto" style="line-height: 60px;">&copy; 2024 Developed By Me</div>
+        <div class="text-center my-auto" style="line-height: 60px;">&copy; 2026 Developed By Me</div>
     </div>
 
 </div>

@@ -107,7 +107,7 @@ include_once "partials/header.php";
 <!-- Footer -->
 <div class="row bg-dark text-white" style="position:fixed; bottom: 1px; left:0; right:0;">
     <div class="col">
-        <p class="text-center my-3 "> &copy; 2024 Developed By Me</p>
+        <p class="text-center my-3 "> &copy; 2026 Developed By Me</p>
     </div>
 </div>
 

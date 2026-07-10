@@ -48,7 +48,7 @@ include_once "partials/header.php";
     <div class="row bg-dark text-white" 
         style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1040; height: 60px; line-height: 60px; margin-left: 280px;">
         <div class="col">
-            <p class="text-center my-3"> &copy; 2024 Developed By Me</p>
+            <p class="text-center my-3"> &copy; 2026 Developed By Me</p>
         </div>
     </div>
 

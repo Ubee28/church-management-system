@@ -40,7 +40,7 @@ class DonationPurpose extends Db
 
     // Add purpose
     public function add_purpose($purpose_name, $description)
-{
+   {
     // Check if purpose already exists
     $check = "SELECT purpose_id
               FROM donation_purposes
@@ -65,7 +65,23 @@ class DonationPurpose extends Db
         $purpose_name,
         $description
     ]);
-}
+
+    }
+
+    public function is_valid_purpose($purpose_name)
+    {
+        $sql = "SELECT COUNT(*) AS total
+                FROM donation_purposes
+                WHERE purpose_name = ?
+                AND status = 'active'";
+
+        $stmt = $this->dbconn->prepare($sql);
+        $stmt->execute([$purpose_name]);
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $result['total'] > 0;
+    }
 
     // Fetch one purpose
     public function fetch_one_purpose($purpose_id)

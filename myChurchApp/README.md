@@ -1,17 +1,129 @@
-# Church Management System
+# Church Management System with Paystack Payment Integration
 This project was built to demonstrate practical backend development skills, including database design, authentication systems, and administrative dashboards in a real-world application scenario.
 
 ---
 
-## 🚀 Features
+## 🚀 Project Highlights
 
-- Secure user authentication system (login/logout)
-- Admin dashboard for centralized control
-- Add, edit, and delete church members
-- Create and manage church events
-- Record and track donations
-- Add, edit, and delete sermons
-- Dynamic updates using JavaScript (AJAX)
+- Responsive Church Management System
+- Object-Oriented PHP Architecture
+- Secure Paystack Payment Integration
+- Donation Purpose Management
+- Printable Donation Receipts
+- Sermon Audio & Video Management
+- Member & Admin Dashboards
+- Event Management System
+- MySQL Database Design
+- Bootstrap 5 Responsive Interface
+
+## ✨ Features
+
+### 🔐 Authentication & Authorization
+- Secure Admin Login System
+- Member Authentication
+- Role-based Access Control
+- Session Management
+- Password Hashing for Improved Security
+
+---
+
+### 👥 Member Management
+- Register New Members
+- View Member Profiles
+- Update Member Information
+- Search Members
+- Member Dashboard
+- Manage Church Membership Records
+
+---
+
+### 📅 Event Management
+- Create Church Events
+- Edit Existing Events
+- Archive Past Events
+- Display Upcoming Events
+- Member Event Viewing
+
+---
+
+### 🎤 Sermon Management
+- Upload Sermons
+- Audio Sermon Support
+- Video Sermon Support
+- Upload Sermon Transcripts
+- Upload Sermon Outlines
+- Sermon Archive
+- Member Sermon Access
+
+---
+
+### 💰 Donation Management
+- Online Donations
+- Anonymous Donations
+- Multiple Donation Purposes
+- Secure Paystack Payment Integration
+- Payment Verification
+- Donation History
+- Printable Donation Receipts
+- Donation Status Tracking
+- Pending, Successful & Failed Payment Status
+
+---
+
+### 🎯 Donation Purpose Management
+- Add Donation Purposes
+- Edit Donation Purposes
+- Activate Donation Purposes
+- Deactivate Donation Purposes
+- Manage Available Giving Categories
+
+---
+
+### 📊 Admin Dashboard
+- Church Statistics Overview
+- Member Summary
+- Event Summary
+- Sermon Summary
+- Donation Summary
+- Recent Activity Display
+- Responsive Sidebar Navigation
+
+---
+
+### 👤 Member Portal
+- View Personal Profile
+- View Church Events
+- Listen to Sermons
+- View Donation History
+- Access Church Announcements
+
+---
+
+### 📱 Responsive User Interface
+- Mobile-Friendly Design
+- Responsive Bootstrap 5 Layout
+- Modern Dashboard Interface
+- Clean User Experience
+
+---
+
+### 🛡️ Security Features
+- Input Validation
+- Output Escaping using `htmlspecialchars()`
+- SQL Injection Protection with Prepared Statements
+- Session-Based Authentication
+- Authentication Guards for Protected Pages
+
+---
+
+### ⚙️ Technical Features
+- Object-Oriented PHP Architecture
+- Modular Code Structure
+- MySQL Relational Database
+- Bootstrap 5 Components
+- JavaScript Interactivity
+- Paystack Payment Gateway Integration
+- Git Version Control
 
 ---
 
@@ -20,10 +132,27 @@ This project was built to demonstrate practical backend development skills, incl
 
 ## 🛠️ Technologies Used
 
-- **Frontend:** HTML, CSS, Bootstrap, JavaScript  
-- **Backend:** PHP  
-- **Database:** MySQL  
-- **Version Control:** Git & GitHub  
+Frontend
+- HTML5
+- CSS3
+- Bootstrap 5
+- JavaScript
+
+Backend
+- PHP (Object-Oriented)
+
+Database
+- MySQL
+
+Payment Gateway
+- Paystack
+
+Version Control
+- Git
+- GitHub
+
+Development Environment
+- XAMPP 
 
 ---
 
@@ -42,13 +171,40 @@ index.php # Main entry point
 ## 📷 Screenshots
 
 ### Homepage  
-![Homepage](assets/images/Capture.PNG)  
-![Homepage](assets/images/Capture2.PNG)  
+![Homepage](assets/images/screenshots/Capture.PNG)  
+![Homepage](assets/images/screenshots/Capture2.PNG)  
 
 ### Admin Dashboard  
-![Dashboard](assets/images/Capture3.PNG)  
-![Dashboard](assets/images/Capture4.PNG)  
-![Dashboard](assets/images/Capture5.PNG)  
+![Dashboard](assets/images/screenshots/Capture3.PNG)  
+![Dashboard](assets/images/screenshots/Capture4.PNG)  
+![Dashboard](assets/images/screenshots/Capture5.PNG)  
+
+---
+
+### Member Dashboard
+
+![Member Dashboard](assets/images/screenshots/Capture6.PNG) 
+![Member Dashboard](assets/images/screenshots/Capture7.PNG)
+![Member Dashboard](assets/images/screenshots/Capture8.PNG)
+![Member Dashboard](assets/images/screenshots/Capture8.PNG)
+
+---
+
+### Donationpage
+
+![Donationpage](assets/images/screenshots/Capture9.2.PNG) 
+![Donationpage](assets/images/screenshots/Capture9.3.PNG)
+![Donationpage](assets/images/screenshots/Capture9.4.PNG)
+![Donationpage](assets/images/screenshots/Capture9.1.4.PNG)
+
+---
+
+### Donation Management
+
+![Donations](assets/images/screenshots/Capture9.1.1.PNG)
+![Donations](assets/images/screenshots/Capture9.1.2.PNG)
+![Donations](assets/images/screenshots/Capture9.1.3.PNG)
+![Donations](assets/images/screenshots/Capture9.1.4.PNG)
 
 ---
 
@@ -69,6 +225,16 @@ http://localhost/church-management-system
 
 
 ---
+
+## 🚀 Future Improvements
+
+- Email Notifications
+- SMS Notifications
+- Docker Support
+- Church Mobile App
+- API Development
+- Attendance Tracking
+- Report Generation
 
 ## 📌 Notes
 

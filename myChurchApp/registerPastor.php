@@ -81,7 +81,7 @@ include_once "partials/header.php";
 
                     <!-- Footer -->
                     <div class="card-footer text-center">
-                        <small>&copy; 2024 Developed by Me</small>
+                        <small>&copy; 2026 Developed by Me</small>
                     </div>
                 </div>
             </div>
