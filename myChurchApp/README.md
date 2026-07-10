@@ -183,28 +183,28 @@ index.php # Main entry point
 
 ### Member Dashboard
 
-![Member Dashboard](assets/images/screenshots/Capture6.PNG) 
-![Member Dashboard](assets/images/screenshots/Capture7.PNG)
-![Member Dashboard](assets/images/screenshots/Capture8.PNG)
-![Member Dashboard](assets/images/screenshots/Capture8.PNG)
+![Member Dashboard](assets/images/screenshots/Capture6.png) 
+![Member Dashboard](assets/images/screenshots/Capture7.png)
+![Member Dashboard](assets/images/screenshots/Capture8.png)
+![Member Dashboard](assets/images/screenshots/Capture8.png)
 
 ---
 
 ### Donationpage
 
-![Donationpage](assets/images/screenshots/Capture9.2.PNG) 
-![Donationpage](assets/images/screenshots/Capture9.3.PNG)
-![Donationpage](assets/images/screenshots/Capture9.4.PNG)
-![Donationpage](assets/images/screenshots/Capture9.1.4.PNG)
+![Donationpage](assets/images/screenshots/Capture9.2.png) 
+![Donationpage](assets/images/screenshots/Capture9.3.png)
+![Donationpage](assets/images/screenshots/Capture9.4.png)
+![Donationpage](assets/images/screenshots/Capture9.1.4.png)
 
 ---
 
 ### Donation Management
 
-![Donations](assets/images/screenshots/Capture9.1.1.PNG)
-![Donations](assets/images/screenshots/Capture9.1.2.PNG)
-![Donations](assets/images/screenshots/Capture9.1.3.PNG)
-![Donations](assets/images/screenshots/Capture9.1.4.PNG)
+![Donations](assets/images/screenshots/Capture9.1.1.png)
+![Donations](assets/images/screenshots/Capture9.1.2.png)
+![Donations](assets/images/screenshots/Capture9.1.3.png)
+![Donations](assets/images/screenshots/Capture9.1.4.png)
 
 ---
 
