@@ -171,40 +171,40 @@ index.php # Main entry point
 ## 📷 Screenshots
 
 ### Homepage  
-![Homepage](assets/images/screenshots/Capture.PNG)  
-![Homepage](assets/images/screenshots/Capture2.PNG)  
+![Homepage](myChurchApp/assets/images/screenshots/Capture.PNG)  
+![Homepage](myChurchApp/assets/images/screenshots/Capture2.PNG)  
 
 ### Admin Dashboard  
-![Dashboard](assets/images/screenshots/Capture3.PNG)  
-![Dashboard](assets/images/screenshots/Capture4.PNG)  
-![Dashboard](assets/images/screenshots/Capture5.PNG)  
+![Dashboard](myChurchApp/assets/images/screenshots/Capture3.PNG)  
+![Dashboard](myChurchApp/assets/images/screenshots/Capture4.PNG)  
+![Dashboard](myChurchApp/assets/images/screenshots/Capture5.PNG)  
 
 ---
 
 ### Member Dashboard
 
-![Member Dashboard](assets/images/screenshots/Capture6.png) 
-![Member Dashboard](assets/images/screenshots/Capture7.png)
-![Member Dashboard](assets/images/screenshots/Capture8.png)
-![Member Dashboard](assets/images/screenshots/Capture8.png)
+![Member Dashboard](myChurchApp/assets/images/screenshots/Capture6.png) 
+![Member Dashboard](myChurchApp/assets/images/screenshots/Capture7.png)
+![Member Dashboard](myChurchApp/assets/images/screenshots/Capture8.png)
+![Member Dashboard](myChurchApp/assets/images/screenshots/Capture8.png)
 
 ---
 
 ### Donationpage
 
-![Donationpage](assets/images/screenshots/Capture9.2.png) 
-![Donationpage](assets/images/screenshots/Capture9.3.png)
-![Donationpage](assets/images/screenshots/Capture9.4.png)
-![Donationpage](assets/images/screenshots/Capture9.1.4.png)
+![Donationpage](myChurchApp/assets/images/screenshots/Capture9.2.png) 
+![Donationpage](myChurchApp/assets/images/screenshots/Capture9.3.png)
+![Donationpage](myChurchApp/assets/images/screenshots/Capture9.4.png)
+![Donationpage](myChurchApp/assets/images/screenshots/Capture9.1.4.png)
 
 ---
 
 ### Donation Management
 
-![Donations](assets/images/screenshots/Capture9.1.1.png)
-![Donations](assets/images/screenshots/Capture9.1.2.png)
-![Donations](assets/images/screenshots/Capture9.1.3.png)
-![Donations](assets/images/screenshots/Capture9.1.4.png)
+![Donations](myChurchApp/assets/images/screenshots/Capture9.1.1.png)
+![Donations](myChurchApp/assets/images/screenshots/Capture9.1.2.png)
+![Donations](myChurchApp/assets/images/screenshots/Capture9.1.3.png)
+![Donations](myChurchApp/assets/images/screenshots/Capture9.1.4.png)
 
 ---
 
